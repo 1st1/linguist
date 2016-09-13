@@ -12,7 +12,7 @@
 #                     listed alphabetically)
 # interpreters      - An Array of associated interpreters
 # searchable        - Boolean flag to enable searching (defaults to true)
-# search_term       - Deprecated: Some languages maybe indexed under a
+# search_term       - Deprecated: Some languages may be indexed under a
 #                     different alias. Avoid defining new exceptions.
 # color             - CSS hex color to represent the language.
 # tm_scope          - The TextMate scope that represents this programming
@@ -23,9 +23,18 @@
 #                     in the statistics as the parent language.
 #
 # Any additions or modifications (even trivial) should have corresponding
-# test change in `test/test_blob.rb`.
+# test changes in `test/test_blob.rb`.
 #
-# Please keep this list alphabetized. Capitalization comes before lower case.
+# Please keep this list alphabetized. Capitalization comes before lowercase.
+
+1C Enterprise:
+  type: programming
+  color: "#814CCC"
+  extensions:
+  - .bsl
+  - .os
+  tm_scope: source.bsl
+  ace_mode: text
 
 ABAP:
   type: programming
@@ -80,6 +89,15 @@ APL:
   - aplx
   - dyalog
   tm_scope: source.apl
+  ace_mode: text
+
+ASN.1:
+  type: data
+  color: "#aeead0"
+  extensions:
+  - .asn
+  - .asn1
+  tm_scope: source.asn
   ace_mode: text
 
 ASP:
@@ -187,6 +205,15 @@ Apex:
   - .cls
   tm_scope: source.java
   ace_mode: java
+
+Apollo Guidance Computer:
+  type: programming
+  color: "#0B3D91"
+  group: Assembly
+  extensions:
+  - .agc
+  tm_scope: source.agc
+  ace_mode: assembly_x86
 
 AppleScript:
   type: programming
@@ -304,7 +331,7 @@ Batchfile:
   extensions:
   - .bat
   - .cmd
-  tm_scope: source.dosbatch
+  tm_scope: source.batchfile
   ace_mode: batchfile
   color: "#C1F12E"
 
@@ -328,6 +355,15 @@ BitBake:
   tm_scope: none
   extensions:
   - .bb
+  ace_mode: text
+
+Blade:
+  type: markup
+  group: HTML
+  extensions:
+    - .blade
+    - .blade.php
+  tm_scope: text.html.php.blade
   ace_mode: text
 
 BlitzBasic:
@@ -991,7 +1027,7 @@ Elm:
 
 Emacs Lisp:
   type: programming
-  tm_scope: source.lisp
+  tm_scope: source.emacs.lisp
   color: "#c065db"
   aliases:
   - elisp
@@ -999,6 +1035,7 @@ Emacs Lisp:
   filenames:
   - .emacs
   - .emacs.desktop
+  - .spacemacs
   extensions:
   - .el
   - .emacs
@@ -1098,6 +1135,13 @@ Fantom:
   tm_scope: none
   ace_mode: text
 
+Filebench WML:
+  type: programming
+  extensions:
+  - .f
+  tm_scope: none
+  ace_mode: text
+
 Filterscript:
   type: programming
   group: RenderScript
@@ -1181,6 +1225,21 @@ GAS:
   - .ms
   tm_scope: source.assembly
   ace_mode: assembly_x86
+
+GCC Machine Description:
+  type: programming
+  extensions:
+  - .md
+  tm_scope: source.lisp
+  ace_mode: lisp
+
+GDB:
+  type: programming
+  extensions:
+  - .gdb
+  - .gdbinit
+  tm_scope: source.gdb
+  ace_mode: text
 
 GDScript:
   type: programming
@@ -1340,7 +1399,6 @@ GraphQL:
   type: data
   extensions:
     - .graphql
-  color: "#E535AB"
   tm_scope: source.graphql
   ace_mode: text
 
@@ -1379,9 +1437,14 @@ Groff:
   - .n
   - .rno
   - .roff
-  tm_scope: text.groff
+  - .tmac
+  filenames:
+  - mmn
+  - mmt
+  tm_scope: text.roff
   aliases:
   - nroff
+  - troff
   ace_mode: text
 
 Groovy:
@@ -1952,7 +2015,7 @@ Lean:
   extensions:
   - .lean
   - .hlean
-  ace_mode: lean
+  ace_mode: text
 
 Less:
   type: markup
@@ -2207,7 +2270,6 @@ Markdown:
   - .mkdown
   - .ron
   tm_scope: source.gfm
-  color: "#083FA1"
 
 Mask:
   type: markup
@@ -2895,12 +2957,24 @@ Pony:
 
 PostScript:
   type: markup
+  color: "#da291c"
   extensions:
   - .ps
   - .eps
   tm_scope: source.postscript
   aliases:
   - postscr
+  ace_mode: text
+
+PowerBuilder:
+  type: programming
+  color: "#8f0f8d"
+  extensions:
+  - .pbt
+  - .sra
+  - .sru
+  - .srw
+  tm_scope: none
   ace_mode: text
 
 PowerShell:
@@ -3011,6 +3085,7 @@ Python:
   - .pyt
   - .pyw
   - .rpy
+  - .spec
   - .tac
   - .wsgi
   - .xpy
@@ -3088,7 +3163,6 @@ RDoc:
   extensions:
   - .rdoc
   tm_scope: text.rdoc
-  color: "#8E84BF"
 
 REALbasic:
   type: programming
@@ -3100,6 +3174,17 @@ REALbasic:
   - .rbtbar
   - .rbuistate
   tm_scope: source.vbnet
+  ace_mode: text
+
+REXX:
+  type: programming
+  aliases:
+  - arexx
+  extensions:
+  - .rexx
+  - .pprx
+  - .rex
+  tm_scope: source.rexx
   ace_mode: text
 
 RHTML:
@@ -3119,6 +3204,24 @@ RMarkdown:
   extensions:
   - .rmd
   tm_scope: source.gfm
+
+RPM Spec:
+  type: data
+  tm_scope: source.rpm-spec
+  extensions:
+  - .spec
+  aliases:
+  - specfile
+  ace_mode: text
+
+RUNOFF:
+  type: markup
+  color: "#665a4e"
+  extensions:
+  - .rnh
+  - .rno
+  tm_scope: text.runoff
+  ace_mode: text
 
 Racket:
   type: programming
@@ -3168,7 +3271,7 @@ Rebol:
 
 Red:
   type: programming
-  color: "#ee0000"
+  color: "#f50000"
   extensions:
   - .red
   - .reds
@@ -3246,6 +3349,7 @@ Ruby:
   - .rbx
   - .ru
   - .ruby
+  - .spec
   - .thor
   - .watchr
   interpreters:
@@ -3413,7 +3517,7 @@ Sass:
 Scala:
   type: programming
   ace_mode: scala
-  color: "#DC322F"
+  color: "#c22d40"
   extensions:
   - .scala
   - .sbt
@@ -3979,7 +4083,6 @@ WebIDL:
 
 World of Warcraft Addon Data:
   type: data
-  color: "#e0b330"
   extensions:
   - .toc
   tm_scope: source.toc
@@ -4056,6 +4159,7 @@ XML:
   - .rdf
   - .resx
   - .rss
+  - .sch
   - .scxml
   - .sfproj
   - .srdf
@@ -4289,7 +4393,6 @@ reStructuredText:
   - .rest.txt
   - .rst.txt
   ace_mode: text
-  color: "#B3BCBC"
 
 wisp:
   type: programming
